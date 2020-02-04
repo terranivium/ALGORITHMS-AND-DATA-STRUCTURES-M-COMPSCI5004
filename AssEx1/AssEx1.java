@@ -1,19 +1,14 @@
 // 2460681S, Wesley Scott
 
-//add your name and matric number
-//do NOT include a package statement in your final submission
-
-//add any import statements you need here
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.Set;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
-
-public class AssEx1_outline {
+public class AssEx1 {
     
 	
 	/** read strings from file 
@@ -24,29 +19,27 @@ public class AssEx1_outline {
      */
 	public static String[] readFromFile(String fileName){
 		FileReader fileInput = null;
-		ArrayList<String> parse = new ArrayList<String>();
-
+		ArrayList<String> parse = new ArrayList<String>(); // store initial read values, gives array length
 		try{
 			fileInput = new FileReader(fileName);
 			Scanner fileParse = new Scanner(fileInput);
-
-			while(fileParse.hasNextLine()){
+			while(fileParse.hasNextLine()){ // while birds.txt has a line to be read
 				parse.add(fileParse.nextLine());
 			}
-		} catch(IOException e){
+		} catch(Exception e){
 			e.printStackTrace();
 		} finally {
 			try{
 				fileInput.close();
-			} catch(IOException e){
+			} catch(Exception e){
 				e.printStackTrace();
 			}
 		}
-		String[] dump = new String[parse.size()];
-		for(int i = 0; i<parse.size(); i++){
-			dump[i] = parse.get(i);
+		String[] dump = new String[parse.size()]; // returned String array
+		for(int i = 0; i < parse.size(); i++){
+			dump[i] = parse.get(i); // populate with ArrayList values
 		}
-		return dump; //replace this line with implementation of the method
+		return dump;
 	}
 	
 	
@@ -56,8 +49,9 @@ public class AssEx1_outline {
 	 * your set should be instantiated as a TreeSet (see lecture 1)
 	 */
 	public static Set<String> arrayToSet(String[] myArray){
-		return null; // replace this with your implementation 
-		
+		List<String> list = Arrays.asList(myArray);
+		Set<String> set = new TreeSet<String>(list);
+		return set; // replace this with your implementation 
 	}
 	
 	
@@ -100,24 +94,24 @@ public class AssEx1_outline {
 		String fileName = args[0];
 		String[] originalArray = readFromFile(fileName);
 		System.out.println("the array has length " + originalArray.length + "\n");
-		// String[] newArray1 = originalArray.clone();
-		// String[] newArray2 = originalArray.clone();
+		String[] newArray1 = originalArray.clone();
+		String[] newArray2 = originalArray.clone();
 		
-		// jumbleArray(newArray1);
-		// jumbleArray(newArray2);
+		jumbleArray(newArray1);
+		jumbleArray(newArray2);
 		
-		// System.out.print("The original array is:\n");
-		// System.out.print(arrayToString(originalArray) + "\n");
+		System.out.print("The original array is:\n");
+		System.out.print(arrayToString(originalArray) + "\n");
 		
-		// System.out.print("The frst jumbled array is:\n");
-		// System.out.print(arrayToString(newArray1) + "\n");
-		// System.out.print("The corresponding set is:\n");
-		// System.out.print(setToString(arrayToSet(newArray1))+"\n");
+		System.out.print("The frst jumbled array is:\n");
+		System.out.print(arrayToString(newArray1) + "\n");
+		System.out.print("The corresponding set is:\n");
+		System.out.print(setToString(arrayToSet(newArray1))+"\n");
 		
-		// System.out.print("The second jumbled array is:\n");
-		// System.out.print(arrayToString(newArray2) + "\n");
-		// System.out.print("The corresponding set is:\n");
-		// System.out.print(setToString(arrayToSet(newArray2)) + "\n");
+		System.out.print("The second jumbled array is:\n");
+		System.out.print(arrayToString(newArray2) + "\n");
+		System.out.print("The corresponding set is:\n");
+		System.out.print(setToString(arrayToSet(newArray2)) + "\n");
 		
 		
 		
