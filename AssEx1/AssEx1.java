@@ -70,8 +70,11 @@ public class AssEx1 {
 	 * are stored
 	 */
 	public static String arrayToString(String[] stringArray){
-		return null; //replace this with your implementation
-		
+		String outString = "";
+		for(String string:stringArray){
+			outString += string + "\n";
+		}
+		return outString; //replace this with your implementation
 	}
 	
 	/** create a string consisting of all of the elements in a set,
