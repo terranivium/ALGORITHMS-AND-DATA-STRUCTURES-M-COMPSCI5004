@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
@@ -59,9 +60,12 @@ public class AssEx1 {
 	 * 
 	 * @param origArray
 	 */
-	public static void jumbleArray(String[] origArray){
-		return; //replace this with your implementation
-		
+	public static String[] jumbleArray(String[] origArray){
+		Random r = new Random();
+		for(int i=0;i<origArray.length;i++){
+			origArray[i] = origArray[r.nextInt(origArray.length)];
+		}
+		return origArray;
 	}
 	
 	/** create a string consisting all of the elements in an array,
@@ -74,7 +78,7 @@ public class AssEx1 {
 		for(String string:stringArray){
 			outString += string + "\n";
 		}
-		return outString; //replace this with your implementation
+		return outString;
 	}
 	
 	/** create a string consisting of all of the elements in a set,
@@ -87,7 +91,7 @@ public class AssEx1 {
 		for (String string:stringSet){
 			outString += string + "\n";
 		}
-		return outString; //replace this with your implementation
+		return outString;
 	}
 	
 	
