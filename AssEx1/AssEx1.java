@@ -83,8 +83,11 @@ public class AssEx1 {
 	 * are stored
 	 */
 	public static String setToString(Set<String> stringSet){
-		return null; //replace this with your implementation
-		
+		String outString = "";
+		for (String string:stringSet){
+			outString += string + "\n";
+		}
+		return outString; //replace this with your implementation
 	}
 	
 	
