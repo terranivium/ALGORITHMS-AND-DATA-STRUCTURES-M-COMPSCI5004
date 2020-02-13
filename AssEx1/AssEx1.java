@@ -52,7 +52,7 @@ public class AssEx1 {
 	public static Set<String> arrayToSet(String[] myArray){
 		List<String> list = Arrays.asList(myArray);
 		Set<String> set = new TreeSet<String>(list);
-		return set; // replace this with your implementation 
+		return set; 
 	}
 	
 	
