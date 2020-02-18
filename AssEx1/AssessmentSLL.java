@@ -63,10 +63,10 @@ public class AssessmentSLL<E extends Comparable<E>> {
 	 * add new node to end of list
 	 */
 	public void insertTail(E elem) {
-		Node<E> newNode = new Node(elem);
+		Node<E> newNode = new Node<E>(elem, first);
 
 		if(first == null){
-			first = new Node(elem);
+			first = new Node<E>(elem, first);
 			return;
 		}
 		
