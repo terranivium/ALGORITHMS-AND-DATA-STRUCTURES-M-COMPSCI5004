@@ -104,7 +104,7 @@ public class AssessmentSLL<E extends Comparable<E>> {
 		}
 	}
 
-	public Node<E> getNextUnique(Node<E> curr){
+	public Node<E> getNextUnique(Node<E> curr){ // ensures no repeated entries in the same list
 		Node<E> dummy = curr;
 		curr = curr.next;
 		while(compare(dummy, curr) == 0){
@@ -113,7 +113,7 @@ public class AssessmentSLL<E extends Comparable<E>> {
 		return curr;
 	}
 
-	public int compare(Node<E> elem1, Node<E> elem2){
+	public int compare(Node<E> elem1, Node<E> elem2){ // wrapper method to check for null or compare
 		if (elem1 == null && elem2 == null) { // null + equal
 			return 0;
 		} else if (elem1 == null) { // this null
@@ -148,31 +148,26 @@ public class AssessmentSLL<E extends Comparable<E>> {
 			} else if((this.compare(c, a) <= -1) && (this.compare(c, b) <= -1)){ // a and b are larger than c or null 
 				mergedList.insert(c.element);
 				c = getNextUnique(c);
-			} else if ((this.compare(a, b) == 0) && (this.compare(a, c) <= -1)){
-				// ab equal, a < c
+			} else if ((this.compare(a, b) == 0) && (this.compare(a, c) <= -1)){ // ab equal, a < c
 				mergedList.insert(a.element);
 				a = getNextUnique(a);
 				b = getNextUnique(b);
-			} else if ((this.compare(a, c) == 0) && (this.compare(a, b) <= -1)){ 
-				// ac equal, a < b
+			} else if ((this.compare(a, c) == 0) && (this.compare(a, b) <= -1)){ // ac equal, a < b
 				mergedList.insert(a.element);
 				a = getNextUnique(a);
 				c = getNextUnique(c);
-			}  else if ((this.compare(b, c) == 0) && (this.compare(b, a) <= -1)){
-				// bc equal, b < a
+			}  else if ((this.compare(b, c) == 0) && (this.compare(b, a) <= -1)){ // bc equal, b < a
 				mergedList.insert(b.element);
 				b = getNextUnique(b);
 				c = getNextUnique(c);
-			} else if ((this.compare(a, b) == 0) && (this.compare(b, c) == 0)){
+			} else if ((this.compare(a, b) == 0) && (this.compare(b, c) == 0)){ // abc equal
 				mergedList.insert(b.element);
 				a = getNextUnique(a);
 				b = getNextUnique(b);
 				c = getNextUnique(c);
 			}
 		}
-		mergedList.printFirstToLast();
-
-		return mergedList;
+		this.first = mergedList.first; // this list becomes the merged list
+		return mergedList; // return mergedlist
 	}
 }
-
